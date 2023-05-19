@@ -23,6 +23,3 @@ urlpatterns = [
     path('api/', views.AttendanceApp.as_view()),
     path('api/facedata/',views.face_recognize)
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
