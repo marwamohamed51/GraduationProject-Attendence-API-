@@ -1,22 +1,17 @@
 from django.db import models
 
 # Create your models here.
-
-dept =(
-    ('it','it'),
-    ('cs','cs'),
-)
-class Student(models.Model):
-    StudentName = models.CharField(max_length=50,blank=True,null=True),
-    StudentSection = models.IntegerField(max_length=15,blank=True,null=True),
-    StudentDrpt = models.CharField(max_length=2,choices=dept,blank=True,null=True),
+class Attendance(models.Model):
+    studentId = models.IntegerField(null=True,blank=True)
+    studentName = models.CharField(max_length=50,null=True,blank=True)
+    studentYear = models.IntegerField(null=True,blank=True)
+    studentSection = models.IntegerField(null=True,blank=True)
+    studentImage = models.ImageField(upload_to='photos/%y/%m/%d',null=True,blank=True)
+    
+    def __str__(self):
+        return self.studentName
+    
     
 
-    def __str__(self):
-        return self.StudentName
-
-class Attended(models.Model):
-    Name = models.CharField(max_length=50,blank=True,null=True),
-    Section = models.IntegerField(max_length=15,blank=True,null=True),
  
 

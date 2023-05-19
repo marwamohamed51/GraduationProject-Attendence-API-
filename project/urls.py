@@ -20,7 +20,6 @@ from Attendance import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('djando/frommodel/',views.func),
-    path('api/',views.AttendanceApp.as_view()),
+    path('api/', views.AttendanceApp.as_view()),
     path('api/facedata/',views.face_recognize)
 ]

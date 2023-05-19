@@ -1,7 +1,7 @@
 from .serializers import *
 from rest_framework import generics
 from rest_framework.views import APIView, status
-from .models import Student, Attended
+from .models import Attendance
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
@@ -20,9 +20,10 @@ import pandas as pd
 
 
 #to show db
+
 class AttendanceApp(generics.ListCreateAPIView):
-        queryset = Student.objects.all()
-        serializer_class = StudentSerializer
+        queryset = Attendance.objects.all()
+        serializer_class = AttendanceSerializer
 
 @api_view(['GET'])
 @csrf_exempt
@@ -78,15 +79,15 @@ def face_recognize(request):
                                 # name=name[1]
                                 # make the array of objects
                                 names = [name [1]]
-                                # dept = [name[2]]
-                                # year = [name [3]]
-                                sections = [name [3]]
+                                dept = [name[2]]
+                                year = [name [3]]
+                                sections = [name [4]]
 
                                 for i in range(len(names)):
                                     st_data = {
                                         'name': names [i],
-                                        # 'dept': dept [i],
-                                        # 'year': year [i],
+                                        'dept': dept [i],
+                                        'year': year [i],
                                         'section': sections [i]
                                     }
                                     students.append(st_data)
